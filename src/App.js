@@ -1,18 +1,21 @@
-import React, {Component} from 'react';
-
+import React, { Component } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import DenseTable from "./component/data-table/DataTable";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'React'
+      name: "React"
     };
   }
 
   render() {
     return (
-      <div>
-        App!
-      </div>
+      <Container fixed>
+        <DenseTable />
+      </Container>
     );
   }
 }
