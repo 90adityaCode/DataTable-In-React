@@ -40,18 +40,18 @@ class App extends Component {
     );
   }
 }
+export default App;
+// function mapState(state) {
+//   const { alert } = state;
+//   return { alert };
+// }
 
-function mapState(state) {
-  const { alert } = state;
-  return { alert };
-}
+// const actionCreators = {
+//   clearAlerts:  ''
+// };
 
-const actionCreators = {
-  clearAlerts:  ''
-};
-
-const connectedApp = connect(
-  mapState,
-  actionCreators
-)(App);
-export { connectedApp as App };
+// const connectedApp = connect(
+//   mapState,
+//   actionCreators
+// )(App);
+// export { connectedApp as App };
