@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import App from './src/App';
-import './style.css';
+import React, { Component } from "react";
+import { render } from "react-dom";  
+import { Provider } from 'react-redux';
+import App from "./src/App";
+import "./style.css";
 
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
 
-render(<App />, document.getElementById('root'));
+  document.getElementById("root")
+);
