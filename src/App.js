@@ -27,7 +27,7 @@ class App extends Component {
              
             <Router history={history}>
               <Switch>
-                <PrivateRoute exact path="/" component={DenseTable} />
+                <PrivateRoute exact path="/user" component={DenseTable} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path='/' component={LandingPage} />
