@@ -47,7 +47,7 @@ function mapState(state) {
 }
 
 const actionCreators = {
-  
+  clearAlerts:  ''
 };
 
 const connectedApp = connect(
