@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import DenseTable from "./component/data-table/DataTable";
+import DenseTable from "./_components/data-table/DataTable";
 class App extends Component {
   constructor() {
     super();
@@ -12,11 +12,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Container fixed>
-        <DenseTable />
-      </Container>
-    );
+    return <DenseTable />;
   }
 }
 
