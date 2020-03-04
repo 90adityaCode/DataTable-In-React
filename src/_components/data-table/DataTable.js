@@ -1,7 +1,13 @@
  import React from 'react';
+ import UserData from './table-operation/UserData';
  class DataTable extends React.Component {
+
+   constructor(props){
+     super(props);
+     
+   }
   render() {
-    return <h2>Hi, I am a Car!</h2>;
+    return <UserData />;
   }
 }
 
