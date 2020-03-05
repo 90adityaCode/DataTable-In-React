@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { history } from "./_helpers";
+import  history  from "./_helpers";
 // import { alertActions } from '../_actions';
-import { PrivateRoute } from "./_router/PrivateRoute";
-import { LoginPage } from "./_components/login-page/LoginPage";
-import { RegisterPage } from "./_components/register-page/RegisterPage";
-import {LandingPage} from './_components/landing-page/LandingPage';
+import  PrivateRoute  from "./_router/PrivateRoute";
+import  LoginPage  from "./_components/login-page/LoginPage";
+import  RegisterPage  from "./_components/register-page/RegisterPage";
+import LandingPage from './_components/landing-page/LandingPage';
 
 import DenseTable from "./_components/data-table/DataTable";
 
@@ -30,8 +30,8 @@ class App extends Component {
                 <PrivateRoute exact path="/user" component={DenseTable} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
-                <Route path='/' component={LandingPage} />
-                <Redirect from="*" to="/" />
+                <Route path='/landing' component={LandingPage} />
+                <Redirect from="*" to="/landing" />
               </Switch>
             </Router>
           </div>

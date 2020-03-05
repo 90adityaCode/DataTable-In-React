@@ -5,3 +5,4 @@ export default function RegisterPage(){
     <p>Register!</p>
   );
 }
+
