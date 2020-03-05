@@ -17,8 +17,8 @@ import LandingPage from "./_components/landing-page/LandingPage";
 import DenseTable from "./_components/data-table/DataTable";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: "React"
     };
@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router history={history}>
+      <Router >
         <Switch>
           <PrivateRoute exact path="/user" component={DenseTable} />
           <Route path="/login" component={LoginPage} />
@@ -38,18 +38,4 @@ class App extends Component {
     );
   }
 }
-export default App;
-// function mapState(state) {
-//   const { alert } = state;
-//   return { alert };
-// }
-
-// const actionCreators = {
-//   clearAlerts:  ''
-// };
-
-// const connectedApp = connect(
-//   mapState,
-//   actionCreators
-// )(App);
-// export { connectedApp as App };
+export default App; 

@@ -23,14 +23,14 @@ export default function LandingPage() {
   return (
     <div className="login-box">
       <div className="lb-header">
-        <a  className="active" id="login-box-link">
+        <button  className="active button-bg" id="login-box-link">
           Login
-        </a>
-        <a id="signup-box-link">
+        </button>
+        <button className="button-bg" id="signup-box-link">
           Sign Up
-        </a>
+        </button>
       </div>
-      {loadPage}
+      {loadPage()}
     </div>
   );
 }
