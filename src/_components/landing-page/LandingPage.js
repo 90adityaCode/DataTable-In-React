@@ -1,7 +1,18 @@
-import React from 'react';
+import React from "react";
 
-export default function LandingPage (){
+export default function LandingPage() {
   return (
-    <p>Landing page</p>
-  )
+    <div class="row">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-secondary">
+          Login
+        </button>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-secondary">
+          Register
+        </button>
+      </div>
+    </div>
+  );
 }
