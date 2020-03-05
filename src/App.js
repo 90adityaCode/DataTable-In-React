@@ -26,19 +26,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="jumbotron">
-        <div className="container">
-          <Router history={history}>
-            <Switch>
-              <PrivateRoute exact path="/user" component={DenseTable} />
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
-              <Route path="/landing" component={LandingPage} />
-              <Redirect from="*" to="/landing" />
-            </Switch>
-          </Router>
-        </div>
-      </div>
+      <Router history={history}>
+        <Switch>
+          <PrivateRoute exact path="/user" component={DenseTable} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/landing" component={LandingPage} />
+          <Redirect from="*" to="/landing" />
+        </Switch>
+      </Router>
     );
   }
 }
