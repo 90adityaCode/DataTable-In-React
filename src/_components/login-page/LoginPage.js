@@ -2,44 +2,21 @@ import React from "react";
 
 export default function LoginPage() {
   return (
-    <div class="form row" id="login">
-      <div class="col-sm-12 container">
-        <div class="input">
-          <input
-            class="main-form animated bounceInDown"
-            type="text"
-            name="usrname"
-            placeholder=" EMAIL ADDRESS"
-          />
-        </div>
-        <div class="input">
-          <input
-            class="main-form animated bounceInDown"
-            type="password"
-            name="password"
-            placeholder=" PASSWORD"
-          />
-        </div>
-        <div class="input">
-          <input
-            class="main-form btn animated bounceInDown"
-            type="button"
-            name="usrname"
-            value="LOGIN"
-          />
-        </div>
-        <div class="input">
-          <label class="pull-left">
-            <input type="checkbox" />
-            Remember me
-          </label>
-          <label class="pull-right">
-            <a href="#" id="3" class="forget-password">
-              Forgot password ?
-            </a>
-          </label>
-        </div>
+    <form class="email-login">
+      <div class="u-form-group">
+        <input type="email" placeholder="Email" />
       </div>
-    </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Password" />
+      </div>
+      <div class="u-form-group">
+        <button>Log in</button>
+      </div>
+      <div class="u-form-group">
+        <a href="#" class="forgot-password">
+          Forgot password?
+        </a>
+      </div>
+    </form>
   );
 }

@@ -2,41 +2,19 @@ import React from "react";
 
 export default function RegisterPage() {
   return (
-    <div class="form row" id="register">
-      <div class="col-sm-12 container">
-        <div class="input">
-          <input
-            class="main-form animated bounceInDown"
-            type="text"
-            name="name"
-            placeholder=" NAME"
-          />
-        </div>
-        <div class="input">
-          <input
-            class="main-form animated bounceInDown"
-            type="text"
-            name="usrname"
-            placeholder=" EMAIL ADDRESS"
-          />
-        </div>
-        <div class="input">
-          <input
-            class="main-form animated bounceInDown"
-            type="password"
-            name="password"
-            placeholder=" PASSWORD"
-          />
-        </div>
-        <div class="input">
-          <input
-            class="main-form btn animated bounceInDown"
-            type="button"
-            name="usrname"
-            value="SIGN UP"
-          />
-        </div>
+    <form class="email-signup">
+      <div class="u-form-group">
+        <input type="email" placeholder="Email" />
       </div>
-    </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Password" />
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Confirm Password" />
+      </div>
+      <div class="u-form-group">
+        <button>Sign Up</button>
+      </div>
+    </form>
   );
 }
