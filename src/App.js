@@ -30,9 +30,8 @@ class App extends Component {
         <Switch>
           <PrivateRoute exact path="/user" component={DenseTable} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/landing" component={LandingPage} />
-          <Redirect from="*" to="/landing" />
+          <Route path="/register" component={RegisterPage} />          
+          <Redirect from="*" to="/login" />
         </Switch>
       </Router>
     );
