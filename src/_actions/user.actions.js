@@ -11,7 +11,7 @@ export const userActions = {
     delete: _delete
 };
 
-function login(username, password) {
+export function login(username, password) {
     return dispatch => {
         dispatch(request({ username }));
 
@@ -33,12 +33,13 @@ function login(username, password) {
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
-function logout() {
+export function logout() {
+  console.log('logout!!!!!!!!!!!!!!')
     userService.logout();
     return { type: userConstants.LOGOUT };
 }
 
-function register(user) {
+export function register(user) {
     return dispatch => {
         dispatch(request(user));
 
@@ -61,7 +62,7 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
-function getAll() {
+export function getAll() {
     return dispatch => {
         dispatch(request());
 
@@ -78,7 +79,7 @@ function getAll() {
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
+export function _delete(id) {
     return dispatch => {
         dispatch(request(id));
 
