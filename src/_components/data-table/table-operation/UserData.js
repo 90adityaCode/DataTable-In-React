@@ -1,11 +1,17 @@
 import React from "react";
-import { Table } from 'react-bootstrap';
+import { Table } from "react-bootstrap";
+
+
+import { connect } from 'react-redux';
+import { userActions } from '../../../_actions/user.actions';
+
 class UserData extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    console.log(userActions)
     return (
       <Table striped bordered hover size="sm">
         <thead>
@@ -38,6 +44,38 @@ class UserData extends React.Component {
       </Table>
     );
   }
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate')
+  }
+
+  getSnapshotBeforeUpdate() {
+     console.log('getSnapshotBeforeUpdate')
+  }
+
+  componentDidUpdate() {
+     console.log('componentDidUpdate')
+  }
+  componentDidMount() {
+     this.props.getAllUser();
+     console.log('componentDidMount')
+  }
 }
+
+
+
+function mapState(state) {
+  console.log('state', state)
+  const { loggingIn } = state.authentication;
+  return { loggingIn };
+}
+
+const actionCreators = {
+  getAllUser: userActions.getAll 
+};
+// export default LoginPage;
+export default connect(
+  mapState,
+  actionCreators
+)(UserData);
 
 export default UserData;
