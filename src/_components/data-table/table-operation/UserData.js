@@ -2,9 +2,9 @@ import React from "react";
 class UserData extends React.Component {
   render() {
     return (
-      <div class="container">
+      <div className="container">
         
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th>Firstname</th>

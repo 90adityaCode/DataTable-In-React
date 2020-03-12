@@ -12,7 +12,7 @@ export const userActions = {
 };
 
 export function login(username, password) {
-  console.log('login!!!!!')
+  console.log('login!!!!!', history)
     return dispatch => {
         dispatch(request({ username }));
 
