@@ -41,7 +41,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`/users`, requestOptions).then(handleResponse);
+    return fetch(`https://reqres.in/api/users`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {

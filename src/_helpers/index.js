@@ -2,4 +2,4 @@
 export * from './history';
 export * from './store';
 export * from './auth-header';
-export * from './api'
+export * from './api.config';

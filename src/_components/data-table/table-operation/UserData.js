@@ -8,10 +8,10 @@ import { userActions } from '../../../_actions/user.actions';
 class UserData extends React.Component {
   constructor(props) {
     super(props);
+    console.log('constructor')
   }
 
   render() {
-    console.log(userActions)
     return (
       <Table striped bordered hover size="sm">
         <thead>
@@ -56,21 +56,22 @@ class UserData extends React.Component {
      console.log('componentDidUpdate')
   }
   componentDidMount() {
-     this.props.getAllUser();
-     console.log('componentDidMount')
+    console.log('this.props',this.props)
+     this.props.getAll(); 
+    console.log('componentDidMount') 
   }
 }
 
 
 
 function mapState(state) {
-  console.log('state', state)
+  console.log('UserData state', state)
   const { loggingIn } = state.authentication;
   return { loggingIn };
 }
 
 const actionCreators = {
-  getAllUser: userActions.getAll 
+  getAll: userActions.getAll 
 };
 // export default LoginPage;
 export default connect(
@@ -78,4 +79,4 @@ export default connect(
   actionCreators
 )(UserData);
 
-export default UserData;
+ 
