@@ -1,6 +1,5 @@
 import React from "react";
 
-import "../landing-page/LandingPage.css";
 import Header from "../landing-page/Header";
 export default function RegisterPage() {
   return (

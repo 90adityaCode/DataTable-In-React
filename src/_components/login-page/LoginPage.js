@@ -1,5 +1,4 @@
 import React from "react";
-import "../landing-page/LandingPage.css";
 import Header from "../landing-page/Header";
 import { userActions } from "../../_actions/user.actions";
 import { connect } from "react-redux";
