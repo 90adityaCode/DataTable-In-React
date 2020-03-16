@@ -5,11 +5,7 @@ class DataTable extends React.Component {
     super(props);
   }
   render() {
-    return (
-      <div className="container">
-        <UserData />
-      </div>
-    );
+    return <UserData />;
   }
 }
 

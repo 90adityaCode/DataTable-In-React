@@ -1,24 +1,14 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: 200,
-      },
-    },
-  }),
-);
-
-export default function BasicTextFields() {
-  const classes = useStyles();
-
+import React from "react";
+import './table.css'
+const SearchData = props => {
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-    </form>
+    <div className="main">
+      <div className="form-group has-search">
+        <span className="fa fa-search form-control-feedback" />
+        <input type="text" className="form-control form-control-add" placeholder="Search" />
+      </div>
+    </div>
   );
-}
+};
+
+export default SearchData;

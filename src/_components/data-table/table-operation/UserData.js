@@ -3,7 +3,7 @@ import { Table, Spinner } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { userActions } from "../../../_actions/user.actions";
-
+import Search from './SearchData';
 class UserData extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +14,11 @@ class UserData extends React.Component {
   }
 
   userList = props => {
-
-    const List  = props.data.map((val, key) => {
+    const List = props.data.map((val, key) => {
       return (
         <tr key={val.id}>
           <td>
-            <img src={val.avatar} style= {{"width": "15%"}}/>
+            <img src={val.avatar} style={{ width: "15%" }} />
           </td>
           <td>{val.email}</td>
           <td>{val.first_name}</td>
@@ -35,18 +34,23 @@ class UserData extends React.Component {
     console.log("userData", userData);
 
     return (
-      <Table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>Profile</th>
-            
-            <th>Email</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-          </tr>
-        </thead>
-        <tbody>{userData.total > 0 ? this.userList(userData) : null}</tbody>
-      </Table>
+      <> 
+      <div className="container">
+        <Search />
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>Profile</th>
+
+              <th>Email</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+          </thead>
+          <tbody>{userData.total > 0 ? this.userList(userData) : null}</tbody>
+        </Table>
+      </div>
+  </>
     );
   }
   // shouldComponentUpdate() {
