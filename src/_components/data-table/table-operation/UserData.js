@@ -1,82 +1,83 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Table, Spinner } from "react-bootstrap";
 
-
-import { connect } from 'react-redux';
-import { userActions } from '../../../_actions/user.actions';
+import { connect } from "react-redux";
+import { userActions } from "../../../_actions/user.actions";
 
 class UserData extends React.Component {
   constructor(props) {
     super(props);
-    console.log('constructor')
+    this.state = {
+      userData: []
+    };
+    console.log("constructor");
   }
 
+  userList = props => {
+
+    const List  = props.data.map((val, key) => {
+      return (
+        <tr key={val.id}>
+          <td>
+            <img src={val.avatar} style= {{"width": "15%"}}/>
+          </td>
+          <td>{val.email}</td>
+          <td>{val.first_name}</td>
+          <td>{val.last_name}</td>
+        </tr>
+      );
+    });
+    return List;
+  };
   render() {
+    const userData = this.props.userData.items || [];
+    const loading = this.props.userData.loading || false;
+    console.log("userData", userData);
+
     return (
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Profile</th>
+            
+            <th>Email</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Username</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
+        <tbody>{userData.total > 0 ? this.userList(userData) : null}</tbody>
       </Table>
     );
   }
-  shouldComponentUpdate() {
-    console.log('shouldComponentUpdate')
-  }
+  // shouldComponentUpdate() {
+  //   console.log("shouldComponentUpdate");
+  //   return false;
+  // }
 
-  getSnapshotBeforeUpdate() {
-     console.log('getSnapshotBeforeUpdate')
-  }
-
-  componentDidUpdate() {
-     console.log('componentDidUpdate')
-  }
+  // componentDidUpdate() {
+  //   console.log("componentDidUpdate");
+  // }
   componentDidMount() {
-    console.log('this.props',this.props)
-     this.props.getAll(); 
-    console.log('componentDidMount') 
+    this.props.getAll();
+    console.log("componentDidMount");
   }
 }
 
-
+// loading, items
 
 function mapState(state) {
-  console.log('UserData state', state)
-  const { loggingIn } = state.authentication;
-  return { loggingIn };
+  console.log("state from reducer", state);
+  return {
+    loggingIn: state.authentication,
+    userData: state.users
+  };
 }
 
 const actionCreators = {
-  getAll: userActions.getAll 
+  getAll: userActions.getAll
 };
 // export default LoginPage;
 export default connect(
   mapState,
   actionCreators
 )(UserData);
-
- 
