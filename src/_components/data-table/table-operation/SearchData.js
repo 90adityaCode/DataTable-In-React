@@ -6,6 +6,7 @@ const SearchData = props => {
       <div className="form-group has-search">
         <span className="fa fa-search form-control-feedback" />
         <input type="text" className="form-control form-control-add" placeholder="Search" />
+        <button type="button" className="add-button">+</button>
       </div>
     </div>
   );
