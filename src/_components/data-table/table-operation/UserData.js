@@ -3,7 +3,7 @@ import { Table, Spinner } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { userActions } from "../../../_actions/user.actions";
-import Search from './SearchData';
+import Search from "./SearchData";
 class UserData extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +12,10 @@ class UserData extends React.Component {
     };
     console.log("constructor");
   }
-
+  searchHandle = e => {
+    console.log(e);
+    console.log(this.props.userData.items);
+  };
   userList = props => {
     const List = props.data.map((val, key) => {
       return (
@@ -29,38 +32,54 @@ class UserData extends React.Component {
     return List;
   };
   render() {
-    const userData = this.props.userData.items || [];
-    const loading = this.props.userData.loading || false;
-    console.log("userData", userData);
-
+    const userData = this.state.userData.items || [];
+    // const loading = this.props.userData.loading || false;
+  console.log('render userData',userData);
     return (
-      <> 
-      <div className="container">
-        <Search />
-        <Table striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>Profile</th>
+      <>
+        <div className="container">
+          <Search search={this.searchHandle} />
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>Profile</th>
 
-              <th>Email</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-            </tr>
-          </thead>
-          <tbody>{userData.total > 0 ? this.userList(userData) : null}</tbody>
-        </Table>
-      </div>
-  </>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+            </thead>
+            <tbody>{userData.length > 0 ? this.userList(userData) : null}</tbody>
+          </Table>
+        </div>
+      </>
     );
   }
-  // shouldComponentUpdate() {
-  //   console.log("shouldComponentUpdate");
+  static getDerivedStateFromProps(nextProps, prevState) {
+   console.log('getDerivedStateFromProps ', nextProps);
+   if(nextProps.userData.items in prevState.userData){
+     console.log('!!!!!!!!!!!!!!!!!!!!!!!',nextProps.userData.items)
+     return {
+       userData: nextProps.userData.items
+     }
+   }
+    return null;
+    // if (nextProps.someValue !== prevState.someValue) {
+    //   return { someState: nextProps.someValue };
+    // } else return null;
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   // console.log("shouldComponentUpdate");
+  //   // console.log("nextProps", nextProps);
+  //   // console.log("nextState", nextState);
+
   //   return false;
   // }
 
-  // componentDidUpdate() {
-  //   console.log("componentDidUpdate");
-  // }
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
   componentDidMount() {
     this.props.getAll();
     console.log("componentDidMount");
